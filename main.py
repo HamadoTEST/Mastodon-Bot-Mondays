@@ -1,6 +1,5 @@
 from mastodon import Mastodon
 import time
-import schedule
 
 # Initialize Mastodon client
 mastodon = Mastodon(
@@ -26,9 +25,5 @@ def post_video():
 
     print("Video posted successfully!")
 
-# Schedule the post_video function to run every Monday at 10:00 PM
-schedule.every().monday.at("22:00").do(post_video)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# Run the post_video function
+post_video()
